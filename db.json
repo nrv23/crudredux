@@ -1,0 +1,19 @@
+{
+  "productos": [
+    {
+      "nombre": "cerveza",
+      "precio": "1000",
+      "id": 1
+    },
+    {
+      "nombre": "Carne molida kilo",
+      "precio": "2500",
+      "id": 2
+    },
+    {
+      "nombre": "Carne molida kilo",
+      "precio": "2500",
+      "id": 3
+    }
+  ]
+}
