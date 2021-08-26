@@ -1,19 +1,29 @@
 {
   "productos": [
     {
-      "nombre": "cerveza",
-      "precio": "1000",
-      "id": 1
-    },
-    {
-      "nombre": "Carne molida kilo",
-      "precio": "2500",
+      "nombre": "Saladawsdsdfsdf",
+      "precio": "1000223343",
       "id": 2
     },
     {
-      "nombre": "Carne molida kilo",
-      "precio": "2500",
+      "nombre": "agua12",
+      "precio": "100012",
       "id": 3
+    },
+    {
+      "nombre": "piña",
+      "precio": "1000",
+      "id": 4
+    },
+    {
+      "nombre": "pera",
+      "precio": "3000",
+      "id": 5
+    },
+    {
+      "nombre": "vcxvxc",
+      "precio": "324234",
+      "id": 6
     }
   ]
 }

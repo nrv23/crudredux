@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import { crearProductoAction } from '../actions/productoActions'; // las funciones de los actions son las que ejecutan
 import {useDispatch,useSelector } from 'react-redux';
+import { mostrarAlertaAction,ocultarAlertaAction } from '../actions/alertaAction';
 // el dispatch para conectarse con el reducer
 
 //El dispatch ejecuta la funcion del action que a su vez, ejecuta otra funcion local 
@@ -19,9 +20,7 @@ const NuevoProducto = ({history}) => {
   //  const {productos:{error,loading}} = useSelector(state => state); // el parametro state es el state global del store y como es una funcion
     // retora ese mismo state
 
-    const error =  useSelector(state => state.productos.error);
-    const loading =  useSelector(state => state.productos.loading);
-
+    const {alerta} =  useSelector(state => state.alerta);
     const dispatch = useDispatch(); // esta funcion ejecuta las funciones del action.
     // Es una funcion que toma como párametro una funcion del action
 
@@ -42,6 +41,10 @@ const NuevoProducto = ({history}) => {
         //validar formulario
 
         if(nombre.trim().length === 0 || precio.toString().trim().length === 0) {
+            dispatch(mostrarAlertaAction({
+                msg: 'Todos los campos son requeridos',
+                classes: 'alert alert-danger text-center p3 mt-4'
+            }))
             return;
         }
  
@@ -49,6 +52,7 @@ const NuevoProducto = ({history}) => {
 
         //agregar el nuevo producto
         agregarProducto(state);
+        dispatch(ocultarAlertaAction());
         history.push('/');// redireccionar a la pagina principal
     }
     return (
@@ -60,6 +64,7 @@ const NuevoProducto = ({history}) => {
                         <h2 className="text-center mb-4 font-weight-bold">
                             Agregar Producto
                         </h2>
+                        {alerta ? <p className={`${alerta.classes}`}>{alerta.msg}</p>: null}
                         <form
                             onSubmit={submitNuevoProducto}
                         >
